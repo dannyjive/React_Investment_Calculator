@@ -1,56 +1,50 @@
-const Input = () => {
+const Input = ({ onChange, userInput }) => {
   return (
-    <div id="user-input">
-      <span class="input-group">
+    <section id="user-input">
+      <span className="input-group">
         <span>
-          <label for="initial-investment">INITIAL INVESTMENT</label>
+          <label>INITIAL INVESTMENT</label>
           <input
             type="number"
-            id="initial-investment"
-            name="initial-investment"
-            // value={inputValue}
-            // onChange={handleChange}
-            placeholder="Type something"
+            value={userInput.initialInvestment}
+            onChange={(e) => onChange("initialInvestment", e.target.value)}
+            required
           />
         </span>
         <span>
-          <label for="annual-investment">ANNUAL INVESTMENT</label>
+          <label htmlFor="annual-investment">ANNUAL INVESTMENT</label>
           <input
             type="number"
-            id="annual-investment"
-            name="annual-investment"
-            // value={inputValue}
-            // onChange={handleChange}
-            placeholder="Type something"
+            value={userInput.annualInvestment}
+            onChange={(e) => onChange("annualInvestment", e.target.value)}
+            required
           />
         </span>
       </span>
 
       <br />
-      <span class="input-group">
+      <span className="input-group">
         <span>
           <label htmlFor="nameInput">EXPECTED RETURN</label>
 
           <input
             type="number"
-            id="nameInput"
-            // value={inputValue}
-            // onChange={handleChange}
-            placeholder="Type something"
+            value={userInput.expectedReturn}
+            onChange={(e) => onChange("expectedReturn", e.target.value)}
+            required
           />
         </span>
         <span>
           <label htmlFor="nameInput">DURATION</label>
           <input
             type="number"
-            id="nameInput"
-            // value={inputValue}
-            // onChange={handleChange}
-            placeholder="Type something"
+            value={userInput.duration}
+            onChange={(e) => onChange("duration", e.target.value)}
+            required
           />
         </span>
       </span>
-    </div>
+    </section>
   );
 };
 
